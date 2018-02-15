@@ -29,7 +29,7 @@ namespace ClubSandwich.Services
             var graphQuery = new { query };
             var content = new StringContent(JsonConvert.SerializeObject(graphQuery), Encoding.UTF8, "application/json");
 
-            var response = await Client.PostAsync("https://api.sandwichclub.tk/graphql", content);
+            var response = await _client.PostAsync("https://api.sandwichclub.tk/graphql", content);
             var json = await response.Content.ReadAsStringAsync();
 
             var graphResult = JsonConvert.DeserializeObject<GraphResult<T>>(json);
@@ -38,4 +38,4 @@ namespace ClubSandwich.Services
             return graphResult;
         }
     }
-}
+} 
