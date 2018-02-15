@@ -62,6 +62,7 @@
     <Compile Include="Service\GraphResult.cs" />
     <Compile Include="Service\RealmConnection.cs" />
     <Compile Include="Model\LoginCredential.cs" />
+    <Compile Include="Model\User.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

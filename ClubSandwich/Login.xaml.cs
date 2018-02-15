@@ -26,6 +26,7 @@ namespace ClubSandwich
             // TODO: use Token.Text to pass in bearer token to api before navigatin
             var transaction = _realm.BeginWrite();
 
+            _realm.RemoveAll();
             _realm.Add<LoginCredential>(new LoginCredential() { Token = Token.Text });
 
             transaction.Commit();

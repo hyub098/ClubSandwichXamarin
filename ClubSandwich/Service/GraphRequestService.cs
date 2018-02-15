@@ -9,19 +9,19 @@ using System.Linq;
 
 namespace ClubSandwich.Services
 {
-    public class GraphRequestProvider
+    public class GraphRequestService
     {
         private readonly HttpClient _client;
         private Realm _realm;
 
-        public GraphRequestProvider()
+        public GraphRequestService()
         {
             _realm = RealmConnection.GetInstance();
 
             var token = _realm.All<LoginCredential>().FirstOrDefault().Token;
 
             _client = new HttpClient();
-            _client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
+            _client.DefaultRequestHeaders.Add("Authorization", "facebook " + token);
         }
 
         public async Task<GraphResult<T>> Query<T>(string query)
@@ -29,7 +29,7 @@ namespace ClubSandwich.Services
             var graphQuery = new { query };
             var content = new StringContent(JsonConvert.SerializeObject(graphQuery), Encoding.UTF8, "application/json");
 
-            var response = await _client.PostAsync("https://api.sandwichclub.tk/graphql", content);
+            var response = await Client.PostAsync("https://api.sandwichclub.tk/graphql", content);
             var json = await response.Content.ReadAsStringAsync();
 
             var graphResult = JsonConvert.DeserializeObject<GraphResult<T>>(json);
