@@ -16,5 +16,9 @@ namespace ClubSandwich
 
             Title.Effects.Add(fontEffect);
         }
+
+        void Login_Clicked(object sender, EventArgs e) {
+            App.Current.MainPage = new MainPage();
+        }
     }
 }

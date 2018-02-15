@@ -135,6 +135,12 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable\sandwich-50.png" />
     <AndroidResource Include="Resources\drawable\sandwich-100.png" />
+    <AndroidResource Include="Resources\drawable\home.png" />
+    <AndroidResource Include="Resources\drawable\home%402x.png" />
+    <AndroidResource Include="Resources\drawable\home%403x.png" />
+    <AndroidResource Include="Resources\drawable\shopping_cart.png" />
+    <AndroidResource Include="Resources\drawable\shopping_cart%402x.png" />
+    <AndroidResource Include="Resources\drawable\shopping_cart%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\Rubik-Medium.ttf" />

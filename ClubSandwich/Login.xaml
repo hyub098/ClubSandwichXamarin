@@ -5,6 +5,7 @@
     <StackLayout VerticalOptions="Center" Spacing="40">
         <Label x:Name="Title" Text="Club Sandwich" TextColor="White" HorizontalOptions="Center" FontSize="Large"/>
         <Image Source="sandwich-100.png"/>
-        <Button Text="Login with Facebook" BackgroundColor="#E040FB" TextColor="White" Margin="20, 0"/>
+        <Button Text="Login with Facebook" BackgroundColor="#E040FB" TextColor="White" Margin="20, 0"
+        Clicked="Login_Clicked"/>
     </StackLayout>
 </ContentPage>
