@@ -7,7 +7,7 @@ namespace ClubSandwich
     {
         public MainPage()
         {
-            Page homePage, shoppingPage = null;
+            Page homePage, shoppingPage, membersPage = null;
 
             switch (Device.RuntimePlatform)
             {
@@ -22,9 +22,14 @@ namespace ClubSandwich
                         Title = "Shopping"
                     };
 
-                
+                    membersPage = new NavigationPage(new MembersPage())
+                    {
+                        Title = "Members"
+                    };
+
                     homePage.Icon = "home.png";
                     shoppingPage.Icon = "shopping_cart.png";
+                    membersPage.Icon = "members.png";
                     break;
                 default:
                     homePage = new HomePage()
@@ -37,11 +42,17 @@ namespace ClubSandwich
                         Title = "Shopping"
                     };
 
+                    membersPage = new MembersPage()
+                    {
+                        Title = "Members"
+                    };
+
                     break;
             }
 
             Children.Add(homePage);
             Children.Add(shoppingPage);
+            Children.Add(membersPage);
 
             Title = Children[0].Title;
         }

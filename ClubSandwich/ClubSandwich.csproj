@@ -41,6 +41,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="MembersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -62,6 +66,9 @@
     <Compile Include="Service\GraphResult.cs" />
     <Compile Include="Service\RealmConnection.cs" />
     <Compile Include="Model\LoginCredential.cs" />
+    <Compile Include="MembersPage.xaml.cs">
+      <DependentUpon>MembersPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
