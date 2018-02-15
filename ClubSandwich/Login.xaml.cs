@@ -18,6 +18,7 @@ namespace ClubSandwich
         }
 
         void Login_Clicked(object sender, EventArgs e) {
+            // TODO: use Token.Text to pass in bearer token to api before navigatin
             App.Current.MainPage = new MainPage();
         }
     }
