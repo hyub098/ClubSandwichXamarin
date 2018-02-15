@@ -21,7 +21,7 @@ namespace ClubSandwich.Droid
 
             oldFont = label.Typeface;
 
-            var font = Typeface.CreateFromAsset(Android.App.Application.Context.Assets, "Pacifico.ttf");
+            var font = Typeface.CreateFromAsset(Android.App.Application.Context.Assets, "Rubik-Medium.ttf");
             label.Typeface = font;
         }
 
