@@ -4,6 +4,8 @@ using Newtonsoft.Json;
 using Realms;
 using System.Net.Http;
 using ClubSandwich.Service;
+using ClubSandwich.Model;
+using System.Linq;
 
 namespace ClubSandwich.Services
 {
@@ -16,10 +18,10 @@ namespace ClubSandwich.Services
         {
             _realm = RealmConnection.GetInstance();
 
+            var token = _realm.All<LoginCredential>().FirstOrDefault().Token;
+
             _client = new HttpClient();
-            _client.DefaultRequestHeaders.Add("Authorization", "Bearer ");
-            _client.DefaultRequestHeaders.Add("Pragma", "no-cache");
-            _client.DefaultRequestHeaders.Add("Cache-Control", "no-cache, no-store, must-revalidate");
+            _client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
         }
 
         public async Task<GraphResult<T>> Query<T>(string query)
@@ -27,7 +29,7 @@ namespace ClubSandwich.Services
             var graphQuery = new { query };
             var content = new StringContent(JsonConvert.SerializeObject(graphQuery), Encoding.UTF8, "application/json");
 
-            var response = await _client.PostAsync("https://api.sandwichclub.tk/graphiql", content);
+            var response = await _client.PostAsync("https://api.sandwichclub.tk/graphql", content);
             var json = await response.Content.ReadAsStringAsync();
 
             var graphResult = JsonConvert.DeserializeObject<GraphResult<T>>(json);
