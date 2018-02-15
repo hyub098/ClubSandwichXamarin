@@ -121,6 +121,13 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="MyCustomFontEffect.iOS.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sandwich-50.png" />
+    <BundleResource Include="Resources\sandwich-100.png" />
+    <BundleResource Include="Resources\Rubik-Medium.ttf" />
+    <BundleResource Include="Resources\Rubik-MediumItalic.ttf" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.5.0.121934\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.5.0.121934\build\netstandard1.0\Xamarin.Forms.targets')" />
