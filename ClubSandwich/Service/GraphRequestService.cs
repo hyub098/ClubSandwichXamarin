@@ -18,10 +18,10 @@ namespace ClubSandwich.Services
         {
             _realm = RealmConnection.GetInstance();
 
-            var token = _realm.All<LoginCredential>().FirstOrDefault().Token;
+            var token = _realm.All<LoginCredential>().FirstOrDefault()?.Token;
 
             _client = new HttpClient();
-            _client.DefaultRequestHeaders.Add("Authorization", "facebook " + token);
+            _client.DefaultRequestHeaders.Add("Sandwich-Auth-Token", "facebook " + token);
         }
 
         public async Task<GraphResult<T>> Query<T>(string query)

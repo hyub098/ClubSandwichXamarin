@@ -11,6 +11,7 @@ namespace ClubSandwich
     {
         Effect fontEffect;
         Realm _realm;
+        UserService _userService;
 
         public Login()
         {
@@ -22,17 +23,34 @@ namespace ClubSandwich
             Title.Effects.Add(fontEffect);
         }
 
-        void Login_Clicked(object sender, EventArgs e) {
+        private async void Login_Clicked(object sender, EventArgs e) {
             // TODO: use Token.Text to pass in bearer token to api before navigatin
             var transaction = _realm.BeginWrite();
 
             _realm.RemoveAll();
             _realm.Add<LoginCredential>(new LoginCredential() { Token = Token.Text });
 
-            transaction.Commit();
-            transaction.Dispose();
+            _userService = new UserService();
+            var response = await _userService.GetMyUserInfo();
 
-            App.Current.MainPage = new MainPage();
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                _realm.Add<User>(response.Data.Me);
+
+                transaction.Commit();
+                transaction.Dispose();
+
+                App.Current.MainPage = new MainPage();
+            }
+            else
+            {
+                _realm.RemoveAll();
+
+                transaction.Commit();
+                transaction.Dispose();
+
+                await DisplayAlert("Failed", "Authentication Failed", "OK");
+            }
         }
     }
 }
