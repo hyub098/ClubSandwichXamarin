@@ -9,12 +9,12 @@ namespace ClubSandwich
     public partial class HomePage : ContentPage
     {
         public IList<Week> Weeks;
+        private MembersViewModel membersViewModel;
         public HomePage()
         {
             InitializeComponent();
-            Weeks = new WeekViewModel().GetWeeks();
-            
-            Users.ItemsSource = Weeks;
+            membersViewModel = new MembersViewModel();
+            this.BindingContext = membersViewModel;
         }
     }
 }
