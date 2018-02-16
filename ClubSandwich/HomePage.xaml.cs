@@ -9,7 +9,6 @@ namespace ClubSandwich
     public partial class HomePage : ContentPage
     {
         private HomeViewModel HomeViewModel;
-
         public HomePage()
         {
             InitializeComponent();
@@ -22,9 +21,7 @@ namespace ClubSandwich
             WeekView.BeginRefresh();
             await HomeViewModel.UpdateWeeks();
             WeekView.EndRefresh();
-
             base.OnAppearing();
-
         }
     }
 }

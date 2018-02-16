@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using ClubSandwich.Model;
 using ClubSandwich.Service;
@@ -21,7 +22,7 @@ namespace ClubSandwich.ViewModel
             _weekSevice = new WeekService();
             var response = await _weekSevice.GetWeeks().ConfigureAwait(false);
 
-            Weeks = response.Data.Weeks;
+            Weeks = response.Data.Weeks.GetRange(1,10);
             OnPropertyChanged(nameof(Weeks));
         }
     }

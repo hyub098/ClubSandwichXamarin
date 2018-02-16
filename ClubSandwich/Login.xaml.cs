@@ -23,6 +23,7 @@ namespace ClubSandwich
         }
 
         private async void Login_Clicked(object sender, EventArgs e) {
+            Token.Text = "EAAV6wdp26tcBAPCXHAX0yn1BX2hDm0gY4uH9uCKee9haMRL02ysNeLI2swyZBCtYkgSw0OZBerY0ZA4IJb3ZCUzlZCZA5oNHpCaDiXgqPAdBnAXc0MpA5HZChKGRdDrpRkLWxzorDG8ZCsAskInqWJVPNBgsCadc1ZAKb2uxarAHH7VyMpdnzPcOZCFjYhVzYMMb9ntSh3jlv5JwZDZD";
             if (String.IsNullOrEmpty(Token.Text))
             {
                 await DisplayAlert("Empty Token", "Provide token to login", "OK");
