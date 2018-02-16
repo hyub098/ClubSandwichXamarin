@@ -78,6 +78,7 @@
     <Compile Include="ViewModel\WeekViewModel.cs" />
     <Compile Include="Service\WeekService.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
+    <Compile Include="ViewModel\ShoppingViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
