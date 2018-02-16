@@ -8,13 +8,24 @@ namespace ClubSandwich
     public partial class MembersPage : ContentPage
     {
 
+        private MembersViewModel membersViewModel;
         public MembersPage()
         {
 
             InitializeComponent();
 
-            this.BindingContext = new MembersViewModel();
-            //listView.ItemsSource = membersViewModel.me;
+            membersViewModel  = new MembersViewModel();
+            this.BindingContext = membersViewModel;
+        }
+
+        protected override async void OnAppearing()
+        {
+            listView.BeginRefresh();
+            await membersViewModel.UpdateMembers();
+            listView.EndRefresh();
+
+            base.OnAppearing();
+
         }
     }
 }

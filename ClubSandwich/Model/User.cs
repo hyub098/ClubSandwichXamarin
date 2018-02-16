@@ -12,5 +12,6 @@ namespace ClubSandwich.Model
         public string LastName { get; set; }
         public double TotalOwed { get; set; }
         public string AvatarUrl { get; set; }
+        public string FullName { get; set; }
     }
 }
