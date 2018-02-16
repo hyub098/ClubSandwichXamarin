@@ -72,6 +72,8 @@
     <Compile Include="Model\User.cs" />
     <Compile Include="ViewModel\MembersViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="Service\UserService.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
