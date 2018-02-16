@@ -4,7 +4,7 @@
     BackgroundColor="{StaticResource primaryColor}">
     <StackLayout VerticalOptions="Center" Spacing="40">
         <Label x:Name="Title" Text="Club Sandwich" TextColor="White" HorizontalOptions="Center" FontSize="Large"/>
-        <Image Source="sandwich-100.png"/>
+        <Image Source="sandwich-100.png" />
         <Entry x:Name="Token" Placeholder="Login Token" Margin="20, 0"/>
         <Button Text="Login" BackgroundColor="#E040FB" TextColor="White" Margin="20, 0" Clicked="Login_Clicked"/>
     </StackLayout>

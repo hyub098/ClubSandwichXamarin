@@ -8,7 +8,7 @@ namespace ClubSandwich
         {
             InitializeComponent();
 
-            MainPage = new Login();
+            MainPage = new MembersPage();
         }
 
         protected override void OnStart()
