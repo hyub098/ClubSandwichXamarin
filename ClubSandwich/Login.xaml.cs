@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using ClubSandwich.Model;
 using ClubSandwich.Service;
 using Realms;
@@ -24,6 +23,12 @@ namespace ClubSandwich
         }
 
         private async void Login_Clicked(object sender, EventArgs e) {
+            if (String.IsNullOrEmpty(Token.Text))
+            {
+                await DisplayAlert("Empty Token", "Provide token to login", "OK");
+                return;
+            }
+
             var transaction = _realm.BeginWrite();
 
             _realm.RemoveAll();
