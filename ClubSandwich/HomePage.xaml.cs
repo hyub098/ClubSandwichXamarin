@@ -8,13 +8,23 @@ namespace ClubSandwich
 {
     public partial class HomePage : ContentPage
     {
-        public IList<Week> Weeks;
+        private HomeViewModel HomeViewModel;
+
         public HomePage()
         {
             InitializeComponent();
-            Weeks = new WeekViewModel().GetWeeks();
-            
-            Users.ItemsSource = Weeks;
+            HomeViewModel = new HomeViewModel();
+            this.BindingContext = HomeViewModel;
+        }
+
+        protected override async void OnAppearing()
+        {
+            WeekView.BeginRefresh();
+            await HomeViewModel.UpdateWeeks();
+            WeekView.EndRefresh();
+
+            base.OnAppearing();
+
         }
     }
 }

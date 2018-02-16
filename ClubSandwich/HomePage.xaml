@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ClubSandwich.HomePage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ClubSandwich.HomePage"
+    Title="{Binding Title}">
 	<StackLayout>
-        <ListView x:Name="Users" >
+        <ListView x:Name="WeekView" ItemsSource="{Binding Weeks}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Grid>
-                            
-                        </Grid>
+                        <Frame>
+                            <Frame.Content>
+                                <Grid>
+                                    <Label Text="{Binding CostPerUser}" />
+                                </Grid>
+                            </Frame.Content>
+                        </Frame>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
