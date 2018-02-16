@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using ClubSandwich.ViewModel;
 using Xamarin.Forms;
+using Xamarin.Forms.Platform.Android;
 
 namespace ClubSandwich
 {
@@ -11,7 +13,6 @@ namespace ClubSandwich
         private MembersViewModel membersViewModel;
         public MembersPage()
         {
-
             InitializeComponent();
 
             membersViewModel  = new MembersViewModel();
