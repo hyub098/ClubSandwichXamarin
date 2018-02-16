@@ -13,7 +13,6 @@ namespace ClubSandwich
         Effect fontEffect;
         Realm _realm;
         UserService _userService;
-        LoginViewModel loginViewModel;
 
         public Login()
         {
@@ -21,17 +20,19 @@ namespace ClubSandwich
 
             InitializeComponent();
             fontEffect = new LabelFontEffect();
-            loginViewModel = new LoginViewModel();
-
-            this.BindingContext = loginViewModel;
 
             Title.Effects.Add(fontEffect);
+
+            Token.Text = "EAAV6wdp26tcBAJkdApa1UckHrF7PHEGjFx3dXn0djmGqTlSBQQEFH4L3GT7dLhtAQ4wh9G5fRV4VJEgjCaYfuva3tidKIkG0vUZC8KWzGZBzaKOjQ32GPivuY8cQEklZACNZBkYfYK4GhCqJdwVlconyKD2kpdr8tQZCxQ81pWPq821g6qrf2VSxOfZAfimMEKGdiha8Oj2QZDZD";
         }
 
         private async void Login_Clicked(object sender, EventArgs e) {
             // TODO: use Token.Text to pass in bearer token to api before navigatin
             if (String.IsNullOrEmpty(Token.Text))
-                await DisplayAlert("Empty Token", "Provide token to login", "OK"); return;
+            {
+                await DisplayAlert("Empty Token", "Provide token to login", "OK");
+                return;
+            }
 
             var transaction = _realm.BeginWrite();
 
