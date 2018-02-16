@@ -50,7 +50,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CircleImage.cs" />
     <Compile Include="Model\ImageCircle.cs" />
     <Compile Include="Model\UserWeekLink.cs" />
     <Compile Include="Model\Week.cs" />

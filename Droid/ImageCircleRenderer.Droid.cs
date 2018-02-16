@@ -50,7 +50,7 @@ namespace ClubSandwich.Droid
                 paint.AntiAlias = true;
                 paint.StrokeWidth = 5;
                 paint.SetStyle(Paint.Style.Stroke);
-                paint.Color = global::Android.Graphics.Color.White;
+                paint.Color = global::Android.Graphics.Color.Argb(255,81,45,168);
 
                 canvas.DrawPath(path, paint);
 
