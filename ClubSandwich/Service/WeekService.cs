@@ -44,6 +44,6 @@ namespace ClubSandwich.Service
 
     public class WeekQueryResult
     {
-        public List<Week> Week { get; set; }
+        public List<Week> Weeks { get; set; }
     }
 }
