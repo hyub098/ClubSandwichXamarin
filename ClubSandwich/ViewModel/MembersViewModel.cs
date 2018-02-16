@@ -1,34 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using ClubSandwich.Model;
+using ClubSandwich.Service;
 
 namespace ClubSandwich.ViewModel
 {
     public class MembersViewModel: BaseViewModel
     {
-        public IList<User> Members { get; private set; }
+        public IList<User> Members { get; set; }
             
+        UserService _userService;
+
         public MembersViewModel()
         {
             Title = "Members";
-            Members = GetMembers();
         }
 
-        public IList<User> GetMembers()
+        public async Task UpdateMembers()
         {
-            var user = new User
-            {
-                FacebookId = 1231,
-                FirstName = "Oreo",
-                LastName = "No",
-                TotalOwed = 231,
-                UserId = 123124
-            };
-            var memberList = new List<User>();
-            for (var i = 0; i < 10; i++) {
-                memberList.Add(user);
-            }
-            return memberList;
+            _userService = new UserService();
+            var response = await _userService.GetUsersInfo().ConfigureAwait(false);
+
+            Members = response.Data.Users.Select(x => {
+                x.FullName = x.FirstName + " " + x.LastName;
+                return x;
+            }).ToList();
+            OnPropertyChanged(nameof(Members));
         }
     }
 }
