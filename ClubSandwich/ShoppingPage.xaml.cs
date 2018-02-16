@@ -7,7 +7,7 @@ namespace ClubSandwich
 {
     public partial class ShoppingPage : ContentPage
     {
-        ShoppingViewModel shoppingViewModel;
+        private ShoppingViewModel shoppingViewModel;
 
         public ShoppingPage()
         {
@@ -15,6 +15,15 @@ namespace ClubSandwich
 
             shoppingViewModel = new ShoppingViewModel();
             BindingContext = shoppingViewModel;
+        }
+
+        protected override async void OnAppearing()
+        {
+            listView.BeginRefresh();
+            await shoppingViewModel.GetShoppingInfo();
+            listView.EndRefresh();
+
+            base.OnAppearing();
         }
     }
 }

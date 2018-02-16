@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using ClubSandwich.Model;
 using ClubSandwich.Service;
 
@@ -10,14 +11,14 @@ namespace ClubSandwich.ViewModel
     {
         WeekService _weekService;
 
-        IList<Week> Weeks;
+        public IList<Week> Weeks { get; set; }
         
         public ShoppingViewModel()
         {
             Title = "Shopping";
         }
 
-        public async void GetShoppingInfo()
+        public async Task GetShoppingInfo()
         {
             _weekService = new WeekService();
 
@@ -26,7 +27,7 @@ namespace ClubSandwich.ViewModel
             {
                 x.Shopper.FullName = x.Shopper.FirstName + " " + x.Shopper.LastName;
                 return x;
-            }).ToList();
+            }).OrderByDescending(x => x.WeekId).ToList();
 
             OnPropertyChanged("Weeks");
         }

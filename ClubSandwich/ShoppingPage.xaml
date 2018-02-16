@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ClubSandwich.ShoppingPage" Title="{Binding Title}">
-	<ListView x:Name="listView" ItemsSource="{Binding Weeks, Mode=TwoWay}" CachingStrategy="RecycleElementAndDataTemplate">
+	<ListView x:Name="listView" ItemsSource="{Binding Weeks, Mode=TwoWay}" CachingStrategy="RecycleElementAndDataTemplate" HasUnevenRows="true">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <Grid>
+                    <Grid Margin="5, 5">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />
                             <RowDefinition Height="2*" />
@@ -18,14 +18,14 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Label Text="WEEK" TextColor="{StaticResource secondaryText}" FontSize="Small" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" />
-                        <Label Text="This Week" TextColor="{StaticResource primaryText}" FontSize="Medium" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" />
+                        <Label Text="WEEK" TextColor="{StaticResource secondaryText}" FontSize="Small" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"/>
+                        <Label Text="This Week" TextColor="{StaticResource primaryText}" FontSize="Medium" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" VerticalTextAlignment="Center" />
                         <Label Text="SHOPPER" TextColor="{StaticResource secondaryText}" FontSize="Small" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" />
-                        <Label Text="{Binding Shopper.FullName}" TextColor="{StaticResource primaryText}" FontSize="Medium" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" />
+                        <Label Text="{Binding Shopper.FullName}" TextColor="{StaticResource primaryText}" FontSize="Medium" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" VerticalTextAlignment="Center" />
                         <Label Text="COST" TextColor="{StaticResource secondaryText}" FontSize="Small" Grid.Row="0" Grid.Column="1" />
-                        <Label Text="$" TextColor="{StaticResource primaryText}" FontSize="Medium" Grid.Row="1" Grid.Column="1" />
-                        <Entry Text="{Binding Cost}" FontSize="Medium" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" />
-<!--                        <Button Image=""-->
+                        <Label Text="$" TextColor="{StaticResource primaryText}" FontSize="Medium" Grid.Row="1" Grid.Column="1" VerticalTextAlignment="Center" />
+                        <Entry Text="{Binding Cost}" FontSize="Medium" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" VerticalOptions="Center" />
+                        <Image Source="update_icon.png" Grid.Row="1" Grid.Column="4" VerticalOptions="Center" />
                     </Grid>
                 </ViewCell>
             </DataTemplate>

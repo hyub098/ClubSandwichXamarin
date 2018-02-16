@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using ClubSandwich.ViewModel;
 using Xamarin.Forms;
-using Xamarin.Forms.Platform.Android;
 
 namespace ClubSandwich
 {

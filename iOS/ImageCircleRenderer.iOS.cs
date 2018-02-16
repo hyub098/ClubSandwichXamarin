@@ -24,8 +24,8 @@ namespace ClubSandwich.iOS
                 double min = Math.Min(Element.Width, Element.Height);
                 Control.Layer.CornerRadius = (float)(min / 2.0);
                 Control.Layer.MasksToBounds = false;
-                Control.Layer.BorderColor = Color.FromRgba(255, 81, 45, 168).ToCGColor();
-)
+                Control.Layer.BorderColor = Color.FromRgba(81, 45, 168, 255).ToCGColor();
+
                 Control.Layer.BorderWidth = 3;
                 Control.ClipsToBounds = true;
             }
